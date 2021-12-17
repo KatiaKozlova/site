@@ -1,0 +1,45 @@
+{% extends 'templ.html' %}
+{% block title %} результаты {% endblock %}
+
+{% block content %}
+        <h2>результат</h2>
+        <table class="table">
+            <tr>
+                <td>средний возраст <br></td>
+                <td>{{ all_info['age_mean'] }}</td>
+            </tr>
+            <tr>
+                <td>минимальный возраст</td>
+                <td>{{ all_info['age_min'] }}</td>
+            </tr>
+            <tr>
+                <td>максимальный возраст</td>
+                <td>{{ all_info['age_max'] }}</td>
+            </tr>
+            <tr class="border">
+                <td>среднее отношение к кофе</td>
+                <td>{{ all_info['q1_mean'] }}</td>
+            </tr>
+            <tr>
+                <td>среднее отношение к сигаретам</td>
+                <td>{{ all_info['q2_mean'] }}</td>
+            </tr>
+            <tr>
+                <td>среднее отношение к кино</td>
+                <td>{{ all_info['q3_mean'] }}</td>
+            </tr>
+            <tr class="border">
+                <td>сколько в среднем фильмов в месяц смотрит любитель сигарет и кофе</td>
+                <td>{{ all_info['q4_mean'] }}</td>
+            </tr>
+            <tr>
+                <td>сколько в среднем чашек кофе в день выпивает любитель кино</td>
+                <td>{{ all_info['q5_mean'] }}</td>
+            </tr>
+            <tr>
+                <td>сколько в среднем сигарет в день выкуривает любитель кино</td>
+                <td>{{ all_info['q6_mean'] }}</td>
+            </tr>
+        </table>
+        <br><br><br><br>
+{% endblock %}

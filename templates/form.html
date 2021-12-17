@@ -1,0 +1,89 @@
+{% extends 'templ.html' %}
+{% block title %} анкета {% endblock %}
+
+{% block content %}
+		<h2>очень важный опрос!</h2>
+		<form class="container" action="/process">
+			<h3>анкета</h3>
+			<div class="row">
+				<div class="col-md-4">ваш возраст:</div>
+				<input class="number" type="number" name="age">
+			</div>
+            <br>
+			<div class="row">
+				<div class="col-md-4">ваш гендер:</div>
+				<select name="gender" class="col-md-4">
+					<option value="male">м</option>
+					<option value="female">ж</option>
+					<option value="other">другой</option>
+				</select>
+			</div>
+			<div class="row">
+				<div class="col-md-4">сейчас вы:</div>
+				<select name="education" class="col-md-4">
+					<option value="school_9">учитесь в средней школе</option>
+					<option value="school_11">учитесь в старшей школе</option>
+					<option value="college">учитесь в колледже</option>
+					<option value="bachelor">учитесь в университете (бакалавриат/специалитет)</option>
+					<option value="master">учитесь в университете (магистратура)</option>
+					<option value="phd">учитесь в университете (аспирантура)</option>
+					<option value="work">работаете</option>
+					<option value="nothing">ничего из вышеперечисленного</option>
+				</select>
+			</div>
+			<h3>вопросы</h3>
+                        <table class="table">
+                           <thead>
+                                <tr>
+                                  <th class="align-center" scope="col"></th>
+                                  <th class="align-center" scope="col">отлично</th>
+                                  <th class="align-center" scope="col">хорошо</th>
+                                  <th class="align-center" scope="col">нормально</th>
+                                  <th class="align-center" scope="col">плохо</th>
+                                  <th class="align-center" scope="col">ужасно</th>
+                                </tr>
+                            </thead>
+                            {% for question in questions_1 %}
+                            <tbody>
+                                <tr>
+                                    <th scope="row">{{ question.text }}</th>
+                                    <td class="align-center"><input class="radio" type="radio" name="{{ question.id }}" value=5></td>
+                                    <td class="align-center"><input class="radio" type="radio" name="{{ question.id }}" value=4></td>
+                                    <td class="align-center"><input class="radio" type="radio" name="{{ question.id }}" value=3></td>
+                                    <td class="align-center"><input class="radio" type="radio" name="{{ question.id }}" value=2></td>
+                                    <td class="align-center"><input class="radio" type="radio" name="{{ question.id }}" value=1></td>
+                                </tr>
+                            </tbody>
+                            {% endfor %}
+                        </table>
+<br><br>
+                        <table class="table">
+                           <thead>
+                                <tr>
+                                  <th class="align-center" scope="col"></th>
+                                  <th class="align-center" scope="col">4+</th>
+                                  <th class="align-center" scope="col">3</th>
+                                  <th class="align-center" scope="col">2</th>
+                                  <th class="align-center" scope="col">1</th>
+                                  <th class="align-center" scope="col">0</th>
+                                </tr>
+                            </thead>
+                            {% for question in questions_2 %}
+                            <tbody>
+                                <tr>
+                                    <th scope="row">{{ question.text }}</th>
+                                    <td class="align-center"><input class="radio" type="radio" name="{{ question.id }}" value=4></td>
+                                    <td class="align-center"><input class="radio" type="radio" name="{{ question.id }}" value=3></td>
+                                    <td class="align-center"><input class="radio" type="radio" name="{{ question.id }}" value=2></td>
+                                    <td class="align-center"><input class="radio" type="radio" name="{{ question.id }}" value=1></td>
+                                    <td class="align-center"><input class="radio" type="radio" name="{{ question.id }}" value=0></td>
+                                </tr>
+                            </tbody>
+                            {% endfor %}
+                        </table>
+			<div class="row">
+				<input class="submit" type="submit" name="submit" value="Отправить">
+			</div>
+		</form>
+    <br><br><br><br>
+{% endblock %}
